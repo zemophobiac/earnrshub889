@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messi India Tour Contest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Animations */
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7); transform: scale(1); }
+            70% { box-shadow: 0 0 0 15px rgba(250, 204, 21, 0); transform: scale(1.05); }
+            100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); transform: scale(1); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-shine {
+            animation: shine 3s infinite;
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .bg-argentina-stripes {
+            background: repeating-linear-gradient(
+                90deg,
+                #75AADB,
+                #75AADB 40px,
+                #ffffff 40px,
+                #ffffff 80px
+            );
+        }
+        /* Utility for fade-in transition */
+        .fade-enter {
+            transform: translateY(2.5rem); /* translate-y-10 */
+            opacity: 0;
+        }
+        .fade-enter-active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-sky-400 rounded-full flex items-center justify-center text-white font-bold">10</div>
+                <h1 class="text-xl font-bold tracking-tighter uppercase text-sky-600">Messi India Tour</h1>
+            </div>
+            <button onclick="handleParticipate()" class="bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 hidden sm:block">
+                Participate Now
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-b from-sky-400 to-blue-600 text-white py-20 lg:py-32 overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div class="absolute right-0 top-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="absolute left-0 bottom-0 w-72 h-72 bg-yellow-300 rounded-full mix-blend-overlay filter blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div id="hero-content" class="transition-all duration-1000 transform fade-enter">
+                <div class="inline-flex items-center bg-yellow-400 text-blue-900 px-4 py-1 rounded-full font-bold text-sm mb-6 shadow-lg animate-bounce">
+                    <i data-lucide="star" class="w-4 h-4 mr-2 fill-current"></i>
+                    Fan Contest 2025
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                    Witness the <span class="text-yellow-300">GOAT</span> Live in India
+                </h1>
+                <p class="text-xl md:text-2xl text-sky-100 mb-10 max-w-2xl mx-auto">
+                    The legend arrives. Enter simply by filling the form and stand a chance to win exclusive access and signed merchandise.
+                </p>
+            </div>
+        </div>
+
+        <!-- Wavy Bottom Border -->
+        <div class="absolute bottom-0 left-0 w-full leading-none">
+            <svg class="relative block w-full h-[50px] md:h-[100px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-slate-50"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Prizes Section -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-800 mb-4">What You Can <span class="text-sky-500">Win</span></h2>
+            <div class="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            <!-- Grand Prize Card -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-yellow-400 transform transition-transform hover:-translate-y-2 relative group">
+                <div class="absolute top-0 right-0 bg-yellow-400 text-blue-900 font-bold py-1 px-4 rounded-bl-lg z-10">
+                    GRAND PRIZE
+                </div>
+                <div class="h-48 bg-gradient-to-r from-blue-900 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute w-full h-full bg-black opacity-30"></div>
+                    <i data-lucide="ticket" class="w-24 h-24 text-yellow-400 animate-float relative z-10"></i>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">All-Access Tour Pass</h3>
+                    <p class="text-slate-600 mb-6">One lucky winner gets the ultimate football experience.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-700">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-3"></i>
+                            VIP Tickets to ALL India matches
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-3"></i>
+                            Front row seating
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-3"></i>
+                            Signed Exclusive Jersey
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-3"></i>
+                            Flight & Hotel Accommodation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Runner Up Card -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 transform transition-transform hover:-translate-y-2 relative">
+                <div class="absolute top-0 right-0 bg-sky-100 text-sky-800 font-bold py-1 px-4 rounded-bl-lg z-10">
+                    10 WINNERS
+                </div>
+                <div class="h-48 bg-sky-500 flex items-center justify-center relative overflow-hidden">
+                    <!-- Inline CSS for pattern -->
+                    <div class="absolute w-full h-full bg-white opacity-10" style="background-image: radial-gradient(circle, #fff 2px, transparent 2.5px); background-size: 20px 20px;"></div>
+                    <i data-lucide="shirt" class="w-24 h-24 text-white animate-pulse relative z-10"></i>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold mb-2">Premium Fan Bundle</h3>
+                    <p class="text-slate-600 mb-6">Top 10 runner-ups take home exclusive gear.</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-slate-700">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-sky-500 mr-3"></i>
+                            <span class="font-bold mr-1">₹3000</span> worth of Merchandise
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-sky-500 mr-3"></i>
+                            Official Team Scarf
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-sky-500 mr-3"></i>
+                            Commemorative Tour Cap
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-sky-500 mr-3"></i>
+                            Limited Edition Poster
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Info Strip -->
+    <section class="bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-around items-center gap-8 text-center md:text-left">
+            <div class="flex items-center">
+                <i data-lucide="calendar" class="w-10 h-10 text-yellow-400 mr-4"></i>
+                <div>
+                    <h4 class="font-bold text-lg">Contest Ends</h4>
+                    <p class="text-slate-400">6 December</p>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <i data-lucide="map-pin" class="w-10 h-10 text-sky-400 mr-4"></i>
+                <div>
+                    <h4 class="font-bold text-lg">Tour Locations</h4>
+                    <p class="text-slate-400">Mumbai • Kolkata • Delhi</p>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <i data-lucide="flame" class="w-10 h-10 text-red-500 mr-4"></i>
+                <div>
+                    <h4 class="font-bold text-lg">Total Winners</h4>
+                    <p class="text-slate-400">1 Grand Prize + 10 Runner-ups</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-sky-50 text-center px-4 relative overflow-hidden">
+        <!-- Decorative stripes -->
+        <div class="absolute top-0 left-0 w-full h-2 bg-argentina-stripes opacity-30"></div>
+        
+        <div class="max-w-3xl mx-auto relative z-10">
+            <h2 class="text-4xl font-bold mb-6 text-slate-900">Don't Miss The History</h2>
+            <p class="text-lg text-slate-600 mb-10">
+                The registration takes less than 2 minutes. Winners will be announced via email and on our social media handles.
+            </p>
+            
+            <!-- The Main CTA Button -->
+            <button onclick="handleParticipate()" class="group relative inline-flex items-center justify-center px-8 py-6 text-2xl font-bold text-blue-900 bg-yellow-400 rounded-full overflow-hidden shadow-2xl hover:bg-yellow-300 transition-colors duration-300 animate-pulse-glow w-full md:w-auto cursor-pointer">
+                <!-- Shine effect overlay -->
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-30 -translate-x-full group-hover:animate-shine" style="transform: skewX(-20deg);"></div>
+                
+                <span>PARTICIPATE NOW</span>
+                <i data-lucide="arrow-right" class="ml-3 w-8 h-8 group-hover:translate-x-2 transition-transform"></i>
+            </button>
+            
+            <p class="mt-6 text-sm text-slate-500">
+                By clicking, you will be redirected to the official Google Form entry.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-8 text-center">
+        <p>&copy; 2025 Messi India Tour. All rights reserved.</p>
+        <p class="text-xs mt-2">This is a promotional contest. Terms and conditions apply.</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Handle Participation Click
+        function handleParticipate() {
+            const googleFormUrl = "https://docs.google.com/forms/u/0/";
+            window.open(googleFormUrl, '_blank');
+        }
+
+        // Trigger Entrance Animation on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroContent = document.getElementById('hero-content');
+            // Slight delay to ensure visual smoothness
+            setTimeout(() => {
+                heroContent.classList.remove('fade-enter');
+                heroContent.classList.add('fade-enter-active');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
